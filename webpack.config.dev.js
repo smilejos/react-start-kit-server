@@ -24,7 +24,8 @@ module.exports = {
             query: {
                 presets: ['es2015', 'react']
             },
-            include: path.join(__dirname, 'src')
+            include: path.join(__dirname, 'src'),
+            exclude: /node_modules/
         }]
     }
 };
