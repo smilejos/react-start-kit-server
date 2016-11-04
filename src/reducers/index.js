@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import commonReducer from './commonReducer'
+import heroReducer from './heroReducer'
 
 export const rootReducer = combineReducers({
-    commonReducer,
+    heroReducer,
   	routing: routerReducer
 })

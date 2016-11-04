@@ -1,25 +1,28 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { render, unmountComponentAtNode  } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { match, browserHistory, Router } from 'react-router'
+import { match, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import Root from './common/Root'
+import root from './common/Root'
 import store from '../store/store'
 
+const mountNode = document.getElementById('app');
+const history = syncHistoryWithStore(browserHistory, store);
 const renderApp = (RootComponent) => {
-    console.log('RootComponent:', RootComponent);
     render((
         <AppContainer>
-            <RootComponent store={store} history={syncHistoryWithStore(browserHistory, store)} />
+            <RootComponent store={store} history={history} />
         </AppContainer>
-    ), document.getElementById('app'));
+    ), mountNode);
 }
 
-renderApp(Root);
+renderApp(root);
 
 if (module.hot) {
     module.hot.accept('./common/Root', () => {
         const nextRoot = require('./common/Root').default;
+        //use unmountComponentAtNode will lose state
+        //unmountComponentAtNode(mountNode)
         renderApp(nextRoot);
     });
 }
