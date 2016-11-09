@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { bindActionCreators  } from 'redux'
 import { connect } from 'react-redux'
+import * as actions from '../../actions/heroAction'
 
 class Hero extends React.Component {
     constructor(props) {
@@ -17,22 +18,43 @@ class Hero extends React.Component {
         });
     }
 
+    _handleClick() {
+        let { addHero } = this.props.actions;
+        addHero(this.state.hero);
+        this.state = {
+            hero : ""
+        }
+    }
+
     render() {
+       let list = this.props.state.heros.map(function (item, index) {
+           return <li key={index}>{item}</li>
+        });
+        
         return (
             <div>
                 <h1>Hello, This is My new Hero. {this.state.hero}</h1>
                 <input type="text" ref="txtHero" value={this.state.hero} onChange={this._handleChange.bind(this)} />
-            </div>  
+                <button onClick={this._handleClick.bind(this)}>Add New Hero</button>
+                <ul>
+                    {list}
+                </ul>
+            </div>
         );
     }
 }
 
+
 function mapStateToProps(state) {
-    return {}
+    return { 
+        state: state.heroReducer,
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {}
+    return { 
+        actions: bindActionCreators(actions, dispatch)
+     }
 }
 
 export default connect(
