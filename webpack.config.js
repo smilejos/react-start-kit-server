@@ -9,6 +9,9 @@ module.exports = {
         path: path.join(__dirname, 'public/assets/'),
         filename: 'bundle.js'
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
         loaders: [{
             test: /\.jsx$/,
@@ -16,7 +19,15 @@ module.exports = {
             query: {
                 presets: ['es2015', 'react']
             },
-            include: path.join(__dirname, 'src')
+            include: path.join(__dirname, 'src'),
+            exclude: /node_modules/
+        },{
+            test: /\.js$/,
+            loader: 'babel',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015']
+            }
         }]
     }
 };
