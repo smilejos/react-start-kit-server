@@ -29321,9 +29321,9 @@
 	var routes = _react2.default.createElement(
 					_reactRouter.Route,
 					{ component: _Main2.default },
-					_react2.default.createElement(_reactRouter.Route, { path: '/', component: _Hero2.default }),
-					_react2.default.createElement(_reactRouter.Route, { path: 'Hello', component: _Hello2.default }),
-					_react2.default.createElement(_reactRouter.Route, { path: 'Hero', component: _Hero2.default })
+					_react2.default.createElement(_reactRouter.Route, { path: 'react-start-kit-server', component: _Hero2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'react-start-kit-server/Hello', component: _Hello2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: 'react-start-kit-server/Hero', component: _Hero2.default })
 	);
 
 	var _default = routes;
@@ -29650,12 +29650,12 @@
 	                { className: 'container' },
 	                _react2.default.createElement(
 	                    _reactRouter.Link,
-	                    { to: "/Hero" },
+	                    { to: "/react-start-kit-server/Hero" },
 	                    'Hero'
 	                ),
 	                _react2.default.createElement(
 	                    _reactRouter.Link,
-	                    { to: "/Hello" },
+	                    { to: "/react-start-kit-server/Hello" },
 	                    'Hello'
 	                ),
 	                this.props.children
