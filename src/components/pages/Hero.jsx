@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { bindActionCreators  } from 'redux'
 import { connect } from 'react-redux'
-import * as actions from '../../actions/heroAction'
+import * as heroActions from '../../actions/heroAction'
 
 class Hero extends React.Component {
     constructor(props) {
@@ -53,7 +53,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return { 
-        actions: bindActionCreators(actions, dispatch)
+        actions: bindActionCreators(heroActions, dispatch)
      }
 }
 

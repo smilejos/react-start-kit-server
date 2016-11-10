@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute } from 'react-router'
 import { Provider } from 'react-redux'
-import routes from './routes'
+import routes from './Routes'
 
 export default class Root extends React.Component {
     render() {

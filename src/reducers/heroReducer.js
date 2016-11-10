@@ -2,7 +2,7 @@
 import { ADD_DATA, REMOVE_DATA } from '../constants/commonActionTypes'
 import * as lodash from 'lodash'
 
-export default function common(state = {
+export default function heroReducer(state = {
         heros: []
     }, action) {
 	switch (action.type) {
