@@ -7,10 +7,11 @@ module.exports = {
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8888',
         'webpack/hot/only-dev-server',
-        './src/components/app.jsx'
+        './src/components/app.jsx',
+        './src/style/style.scss'
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', '.scss']
     },
     output: {
         path: path.join(__dirname, 'public/assets/'),
@@ -29,13 +30,16 @@ module.exports = {
             },
             include: path.join(__dirname, 'src'),
             exclude: /node_modules/
-        },{
+        }, {
             test: /\.js$/,
             loader: 'babel',
             exclude: /node_modules/,
             query: {
                 presets: ['es2015']
             }
+        }, {
+            test: /\.scss$/,
+            loaders: ['style', 'css', 'sass']
         }]
     }
 };
